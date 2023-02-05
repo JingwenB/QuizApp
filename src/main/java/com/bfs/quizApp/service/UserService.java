@@ -5,6 +5,7 @@ import com.bfs.quizApp.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -47,5 +48,13 @@ public class UserService {
 
     public void createNewUser(String email, String password, String firstName, String lastName) {
         userDao.createNewUser(email, password, firstName, lastName);
+    }
+
+    public void changeActiveStatus(String user_id, boolean is_active) {
+        if(is_active){
+            userDao.deactivateUser(user_id);
+        } else {
+            userDao.activateUser(user_id);
+        }
     }
 }

@@ -25,7 +25,7 @@ public class UserDao {
     }
 
     public List<User> getAllUsers() {
-        String query = "SELECT * FROM User WHERE is_active is true";
+        String query = "SELECT * FROM User";
         return jdbcTemplate.query(query, rowMapper);
     }
 
@@ -33,5 +33,15 @@ public class UserDao {
         String query = "INSERT INTO user (firstName, lastName, email, password) " +
                 "values (?, ?, ?, ?)";
         jdbcTemplate.update(query, firstName, lastName, email, password);
+    }
+
+    public void activateUser(String user_id) {
+        String query = "update user set is_active = true where user_id = ?;";
+        jdbcTemplate.update(query, user_id);
+    }
+
+    public void deactivateUser(String user_id) {
+        String query = "update user set is_active = false where user_id = ?;";
+        jdbcTemplate.update(query, user_id);
     }
 }
