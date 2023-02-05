@@ -3,11 +3,13 @@
 
 <html>
 <head>
-    <title>Admin Users</title>
+    <title>Manage All Users</title>
     <style>
         table, th, td {
             border: 1px solid;
             text-align: center;
+            vertical-align: center;
+            horiz-align: center;
         }
 
         table.center {
@@ -32,8 +34,8 @@
         <th> Firstname</th>
         <th> Lastname</th>
         <th> Email</th>
-        <th> No. Quizzes</th>
-        <th> Overall Grades</th>
+<%--        <th> No. Quizzes</th>--%>
+<%--        <th> Overall Grades</th>--%>
         <th> Details</th>
         <th> Is Active</th>
     </tr>
@@ -45,21 +47,22 @@
             <td> ${user.firstName} </td>
             <td> ${user.lastName} </td>
             <td> ${user.email} </td>
-            <td> 0</td>
-            <td> 0</td>
-            <td><a href="${pageContext.request.contextPath}/details?user_id=${user.id}">details</a></td>
+                <%-- href=... calls get request [getUserDetails()] with url "user_details?user_id=${user.id}" --%>
+            <td><a href="${pageContext.request.contextPath}/user_details?user_id=${user.id}">details</a></td>
             <td>
                 <c:choose>
-                    <c:when test="${choice.active}">
-                        <form method="post" action="/deactivate_user">
+                    <%--Note: sent request parameter(user_id, is_active) withing url--%>
+                    <c:when test="${user.active}">
+                        <form method="post" action="/user_status?user_id=${user.id}&is_active=${user.active}">
                             <button type="submit">
                                 deactivate
                             </button>
                         </form>
                     </c:when>
                     <c:otherwise>
-                        <form method="post" action="/activate_user">
-                            <button type="submit">
+                        <form method="post" action="/user_status?user_id=${user.id}&is_active=${user.active}">
+                                <%--<button type="submit" name="user_id" value=${user.id}>--%>
+                            <button type="submit" >
                                 activate
                             </button>
                         </form>
