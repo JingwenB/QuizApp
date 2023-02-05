@@ -63,8 +63,6 @@ public class UsersController {
         return "redirect:/admin_users";
     }
 
-
-
     //render user detail page, by user_id from HttpSession session
     @GetMapping("/user_details")
     public String getUserDetails(
@@ -80,7 +78,7 @@ public class UsersController {
         return "admin/user_details";
     }
 
-    // duplicated code(sam with quiz history controller) to setup grade for each quiz
+    // duplicated code(same with quiz history controller) to setup grade for each quiz
     private void modifyQuiz(Quiz quiz){
         List<QuizQuestion> qqs = qqService.getQuizQuestionsByQuizID(quiz.getId());
         qqs.stream().forEach((qq)->{

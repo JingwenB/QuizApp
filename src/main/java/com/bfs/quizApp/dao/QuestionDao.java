@@ -38,10 +38,18 @@ public class QuestionDao {
         questions.stream().forEach(this::setQuestionChoices);
         return questions;
     }
+    public List<Question> getActiveQuestionsByCategory(String category) {
+        String query = "SELECT * FROM Question WHERE category = (:category) where is_active = true";
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("category", category);
+        List<Question> questions = namedParameterJdbcTemplate.query(query, parameterSource, questionRowMapper);
+        questions.stream().forEach(this::setQuestionChoices);
+        return questions;
+    }
 
 
     public Question getQuestionByQuestionId(int id) {
-        String query = "SELECT * FROM Question WHERE question_id = (:id)";
+        String query = "SELECT * FROM Question WHERE question_id = (:id) ";
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("id", id);
         List<Question> questions =  namedParameterJdbcTemplate.query(query,parameterSource, questionRowMapper);
@@ -58,5 +66,29 @@ public class QuestionDao {
         question.setChoices(choices);
         question.setCorrect_choice();
 
+    }
+
+    public List<Question> getAllQuestions() {
+        String query = "SELECT * FROM Question";
+        List<Question> questions = namedParameterJdbcTemplate.query(query, questionRowMapper);
+        questions.stream().forEach(this::setQuestionChoices);
+        return questions;
+    }
+
+    public List<Question> getAllActiveQuestions() {
+        String query = "SELECT * FROM Question where is_active = true";
+        List<Question> questions = namedParameterJdbcTemplate.query(query, questionRowMapper);
+        questions.stream().forEach(this::setQuestionChoices);
+        return questions;
+    }
+
+    public void activateQuestion(String question_id) {
+        String query = "update Question set is_active = true where question_id = ?;";
+        jdbcTemplate.update(query, question_id);
+    }
+
+    public void deactivateQuestion(String question_id) {
+        String query = "update Question set is_active = false where question_id = ?;";
+        jdbcTemplate.update(query, question_id);
     }
 }

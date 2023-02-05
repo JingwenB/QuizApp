@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title style="text-align:center">History</title>
+    <title style="text-align:center">Quiz History</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         table, th, td {

@@ -13,8 +13,8 @@ public class Question {
     private int id;
     private String category;
     private String description;
+    private boolean isActive;
 
-    private int is_active;
     // not from db
     private List<Choice> choices;
     private Choice correct_choice;

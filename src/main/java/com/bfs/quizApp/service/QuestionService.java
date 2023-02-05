@@ -24,7 +24,7 @@ public class QuestionService {
         if(Category == null){
             return ret;
         }
-        List<Question> all_question = questionDao.getQuestionsByCategory(Category);
+        List<Question> all_question = questionDao.getActiveQuestionsByCategory(Category);
         Random r = new Random();
         int[] fiveRandomNumbers = r.ints(5, 0, all_question.size()).toArray();
         for(int rint:  fiveRandomNumbers){
@@ -36,5 +36,17 @@ public class QuestionService {
 
     public Question getQuestionByQuestionId(int question_id) {
         return questionDao.getQuestionByQuestionId(question_id);
+    }
+
+    public List<Question> getAllQuestions() {
+        return questionDao.getAllQuestions();
+    }
+
+    public void changeActiveStatus(String question_id, boolean is_active) {
+        if(is_active){
+            questionDao.deactivateQuestion(question_id);
+        } else {
+            questionDao.activateQuestion(question_id);
+        }
     }
 }
