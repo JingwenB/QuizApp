@@ -17,6 +17,7 @@ public class ChoiceRowMapper implements RowMapper<Choice> {
         choice.setId(rs.getInt("choice_id"));
         choice.setQuestion_id(rs.getInt("question_id"));
         choice.setDescription(rs.getString("description"));
+        //TODO 是不是要用setIs_correct, 前端有用过，check to change
         choice.setCorrect(rs.getBoolean("is_correct"));
         return choice;
     }

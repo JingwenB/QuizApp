@@ -22,7 +22,7 @@
         </div>
 
         <div>
-            <label>Enter Your First Name</label>
+            <label>Enter Your Last Name</label>
             <input type="text" name="lastName">
         </div>
 

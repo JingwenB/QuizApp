@@ -60,5 +60,26 @@ create table if not exists QuizQuestion
     foreign key (user_choice_id) references Choice(choice_id)
     );
 
+create table if not exists Feedback
+(
+    feedback_id int auto_increment,
+    user_id int,
+    message varchar(200),
+    rating int,
+    date timestamp,
+    primary key (feedback_id),
+    foreign key (user_id) references User(user_id)
+);
+
+
+create table if not exists Contact
+(
+    contact_id int auto_increment,
+    firstName varchar(20),
+    lastName varchar(20),
+    subject varchar(50),
+    message varchar(200),
+    primary key (contact_id)
+);
 
 

@@ -17,7 +17,8 @@ public class QuestionRowMapper implements RowMapper<Question> {
         question.setId(rs.getInt("question_id"));
         question.setCategory(rs.getString("category"));
         question.setDescription(rs.getString("description"));
-
+        // todo is_active == int ??
+        question.setIs_active(rs.getInt("is_active"));
         return question;
     }
 }
