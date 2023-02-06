@@ -88,8 +88,15 @@ public class QuizService {
         quiz.setUser(u);
     }
 
+
     public List<Quiz> getQuizzesWithFilter(String category, String user_id) {
         List<Quiz> quizzes = quizDao.getAllQuizzes();
+
+        // for manager display remove unfinished quiz
+        quizzes =
+                quizzes.stream()
+                        .filter((quiz)-> quiz.getTime_end() != null)
+                        .collect(Collectors.toList());
 
         if(!Objects.equals(category, "") && !Objects.equals(category, "all")){
             quizzes =

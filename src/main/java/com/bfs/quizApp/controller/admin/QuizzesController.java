@@ -38,7 +38,7 @@ public class QuizzesController {
     @GetMapping("/admin_quizzes")
     public String getQuizzes(Model model,
                              HttpSession session) {
-        List<Quiz> quizzes = quizService.getAllQuizzes();
+        List<Quiz> quizzes = quizService.getQuizzesWithFilter("", "");
         quizzes.stream().forEach(this::modifyQuiz);
         model.addAttribute("quizzes", quizzes);
         session.setAttribute("quizzes", quizzes);
