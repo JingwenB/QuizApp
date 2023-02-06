@@ -41,7 +41,7 @@ public class QuizzesController {
         List<Quiz> quizzes = quizService.getQuizzesWithFilter("", "");
         quizzes.stream().forEach(this::modifyQuiz);
         model.addAttribute("quizzes", quizzes);
-        session.setAttribute("quizzes", quizzes);
+//        session.setAttribute("quizzes", quizzes);
         return "admin/quizzes";
     }
 

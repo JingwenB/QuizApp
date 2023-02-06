@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Admin Home</title>
+    <title>Admin Feedbacks</title>
 </head>
 
 <body>
@@ -13,7 +13,38 @@
     <h1>Feedbacks</h1>
     <p>viewing all feedbacks</p>
 
+
+    <p>Our Overall rating: ${overall_rate}</p>
+    <table class="center">
+        <thead>
+        <tr>
+
+            <th> ID </th>
+            <th> User ID</th>
+            <th> Rating </th>
+            <th> Message </th>
+            <th> Date </th>
+            <th> User Details </th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${feedbacks}" var="feedback">
+
+            <tr>
+                <td> ${feedback.id} </td>
+                <td> ${feedback.user_id} </td>
+                <td> ${feedback.rating} </td>
+                <td> ${feedback.message} </td>
+                <td> ${feedback.date} </td>
+                <td><a href="${pageContext.request.contextPath}/user_details?user_id=${feedback.user_id}">details</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</body>
+
 </div>
 </body>
+
 
 </html>

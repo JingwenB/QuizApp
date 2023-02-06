@@ -18,6 +18,6 @@ public class QuizQuestion {
 
     //  not from db
     private Question question;
-//    private Choice correctChoice;
+//    private Choice usersChoice;
 
 }

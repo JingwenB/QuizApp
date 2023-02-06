@@ -5,17 +5,7 @@
 <head>
     <title>Manager All Questions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        table, th, td {
-            border: 1px solid;
-            text-align: center;
-        }
 
-        table.center {
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
 </head>
 
 <body>

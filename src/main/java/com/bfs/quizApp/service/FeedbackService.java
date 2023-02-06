@@ -6,7 +6,8 @@ import com.bfs.quizApp.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
+//import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -27,7 +28,7 @@ public class FeedbackService {
         feedback.setRating(star);
         feedback.setMessage(message);
         feedback.setUser_id(user.getId());
-        feedback.setDate(new Timestamp(System.currentTimeMillis()));
+        feedback.setDate(new Date(System.currentTimeMillis()));
         feedbackDao.createNewFeedback(feedback);
 
     }

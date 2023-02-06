@@ -5,9 +5,7 @@
 <head>
     <title>Feedback</title>
 </head>
-<style>
 
-</style>
 <body>
 
 <%@ include file="navigation.jsp" %>

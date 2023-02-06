@@ -39,7 +39,7 @@ public class QuestionsController {
     ) {
         List<Question> questions = questionService.getAllQuestions();
         model.addAttribute("questions", questions);
-        session.setAttribute("questions", questions);
+//        session.setAttribute("questions", questions);
         return "admin/questions";
     }
 
@@ -64,7 +64,7 @@ public class QuestionsController {
 
         List<Question> questions = questionService.getQuestionsWithFilter(category, is_active);
         model.addAttribute("questions", questions);
-        session.setAttribute("questions", questions);
+//        session.setAttribute("questions", questions);
         return "admin/questions";
     }
 

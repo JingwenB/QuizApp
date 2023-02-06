@@ -4,19 +4,6 @@
 <html>
 <head>
     <title>Manage All Users</title>
-    <style>
-        table, th, td {
-            border: 1px solid;
-            text-align: center;
-            vertical-align: center;
-            horiz-align: center;
-        }
-
-        table.center {
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
 </head>
 
 <body>

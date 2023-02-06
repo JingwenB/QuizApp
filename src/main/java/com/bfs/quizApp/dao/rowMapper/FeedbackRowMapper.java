@@ -16,7 +16,7 @@ public class FeedbackRowMapper implements RowMapper<Feedback> {
         feedback.setUser_id(rs.getInt("user_id"));
         feedback.setMessage(rs.getString("message"));
         feedback.setRating(rs.getInt("rating"));
-        feedback.setDate(rs.getTimestamp("timestamp"));
+        feedback.setDate(rs.getDate("date"));
 
         return feedback;
     }
