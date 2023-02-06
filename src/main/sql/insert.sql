@@ -7,6 +7,11 @@ VALUES
     ('Bob', 'Li', 'bob@gmail.com', '1234', 1234)
 ;
 
+insert into
+    User(firstname, lastname, email, password, phone, is_admin)
+VALUES
+    ('ad', 'min', 'admin@gmail.com', '123', 4321, true);
+
 
 # http://mathandreadinghelp.org/multiple_choice_math_problems.html
 insert into Question(category, description)

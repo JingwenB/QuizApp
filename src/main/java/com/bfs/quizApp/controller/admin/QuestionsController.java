@@ -38,6 +38,7 @@ public class QuestionsController {
             HttpSession session
     ) {
         List<Question> questions = questionService.getAllQuestions();
+        System.out.println(questions);
         model.addAttribute("questions", questions);
         session.setAttribute("questions", questions);
         return "admin/questions";

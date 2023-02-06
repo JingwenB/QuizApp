@@ -25,7 +25,7 @@
         <button type="submit">Submit</button>
 
     </form>
-    <form method="post" action="/create_user">
+    <form method="get" action="/register">
         <button type="submit" >
             Register
         </button>

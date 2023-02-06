@@ -22,7 +22,7 @@ public class Config implements WebMvcConfigurer {
     private final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     private final String DB_URL = "jdbc:mysql://127.0.0.1:3306/quizApp";
     private final String USER = "root";
-    private final String PASSWORD = "dbuserdbuser";
+    private final String PASSWORD = "L940308l";
 
 
     @Bean

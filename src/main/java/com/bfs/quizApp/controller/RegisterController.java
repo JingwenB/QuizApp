@@ -22,18 +22,10 @@ public class RegisterController {
 
         if (session != null && session.getAttribute("user") != null) {
             return "redirect:/user_home";
-
         }
 
         System.out.println("in register");
         return "register";
-    }
-
-    @PostMapping("/create_user")
-    public String PostRegister(HttpSession session, Model model) {
-
-        System.out.println("in register submit button");
-        return "redirect:/register";
     }
 
     @PostMapping ("/register")
@@ -47,6 +39,4 @@ public class RegisterController {
         System.out.println("in register");
         return "redirect:/login";
     }
-
-
 }
