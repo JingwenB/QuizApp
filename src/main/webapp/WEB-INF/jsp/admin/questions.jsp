@@ -26,6 +26,29 @@
     <p>viewing all questions</p>
 
 </div>
+<p>Choose a question category from below</p>
+<form method="get" action="/getQuestionWithFilter">
+
+    <label for="categories">Choose a category:</label>
+    <select name="category" id="categories">
+        <option value="" selected>--Please choose an option--</option>
+        <option value="all">All</option>
+        <option value="Math">Math</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Biology">Biology</option>
+    </select>
+    <br/>
+    <label for="is_active">Choose question status</label>
+    <select name="is_active" id="is_active">
+        <option value="" selected>--Please choose an option--</option>
+        <option value="all">All</option>
+        <option value="true">Active</option>
+        <option value="false">Inactive</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+
+
 
 <div style="text-align:center">
     <table class="center">

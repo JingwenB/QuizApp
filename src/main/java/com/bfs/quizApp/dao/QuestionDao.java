@@ -39,7 +39,7 @@ public class QuestionDao {
         return questions;
     }
     public List<Question> getActiveQuestionsByCategory(String category) {
-        String query = "SELECT * FROM Question WHERE category = (:category) where is_active = true";
+        String query = "SELECT * FROM Question WHERE category = (:category) and is_active = true";
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("category", category);
         List<Question> questions = namedParameterJdbcTemplate.query(query, parameterSource, questionRowMapper);

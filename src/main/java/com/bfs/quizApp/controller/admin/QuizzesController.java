@@ -14,13 +14,14 @@ public class QuizzesController {
     ) {
 
     }
+    //TODO: fetch all quizzes
+    // - display all quizzes -> with filter by category & user_id
+    // - each quiz can go into detail
 
     @GetMapping("/admin_quizzes")
     public String getFeedback(
     ) {
-        //TODO: fetch all quizzes
-        // - display all quizzes -> with filter by category & user_id
-        // - each quiz can go into detail
+
         return "admin/quizzes";
     }
 

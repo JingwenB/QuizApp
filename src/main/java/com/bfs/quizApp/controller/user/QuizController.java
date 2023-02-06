@@ -51,14 +51,13 @@ public class QuizController {
 
         Quiz currQuiz = (Quiz) session.getAttribute("quiz");
         if (currQuiz != null && this.setQuiz){
-            List<Question> questions = questionService.getQuestionsByCategory((String) session.getAttribute("category"));
+            List<Question> questions = questionService.getQuestionsForQuiz((String) session.getAttribute("category"));
 
             qqService.createQuizQuestions(currQuiz, questions);
             session.setAttribute("quiz", currQuiz);
             session.setAttribute("questions", questions);
 //            System.out.println("Added qq Quiz: " + session.getAttribute("quiz"));
             this.setQuiz = false;
-
         }
         model.addAttribute("questions", session.getAttribute("questions"));
         return "user/quiz";

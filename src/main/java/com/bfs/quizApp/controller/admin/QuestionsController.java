@@ -54,5 +54,19 @@ public class QuestionsController {
         return "redirect:/admin_questions";
     }
 
+    @GetMapping("/getQuestionWithFilter")
+    public String filterQuestions(
+            @RequestParam String category,
+            @RequestParam String is_active,
+            Model model,
+            HttpSession session
+    ) {
+
+        List<Question> questions = questionService.getQuestionsWithFilter(category, is_active);
+        model.addAttribute("questions", questions);
+        session.setAttribute("questions", questions);
+        return "admin/questions";
+    }
+
 
 }

@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestionService {
@@ -19,18 +21,49 @@ public class QuestionService {
     }
 
 
-    public List<Question> getQuestionsByCategory(String Category) {
+    public List<Question> getQuestionsForQuiz(String category) {
         List<Question> ret = new ArrayList<>();
-        if(Category == null){
+        if(category == null || category.equals("")){
             return ret;
         }
-        List<Question> all_question = questionDao.getActiveQuestionsByCategory(Category);
+
+        List<Question> questions = getQuestionsWithFilter(category, "true");
+
         Random r = new Random();
-        int[] fiveRandomNumbers = r.ints(5, 0, all_question.size()).toArray();
+        int[] fiveRandomNumbers = r.ints(5, 0, questions.size()).toArray();
         for(int rint:  fiveRandomNumbers){
-            ret.add(all_question.get(rint));
+            ret.add(questions.get(rint));
         }
         return ret;
+    }
+
+
+    public List<Question> getQuestionsWithFilter(String category, String is_active) {
+
+        List<Question> questions = questionDao.getAllQuestions();
+
+        if(!Objects.equals(category, "") && !Objects.equals(category, "all")){
+            questions =
+                    questions.stream()
+                    .filter((question)->Objects.equals(question.getCategory(), category))
+                    .collect(Collectors.toList());
+        }
+
+        if(Objects.equals(is_active, "true")) {
+            questions =
+                    questions.stream()
+                    .filter(Question::isActive)
+                    .collect(Collectors.toList());
+        }
+
+        if(Objects.equals(is_active, "false")) {
+            questions =
+                    questions.stream()
+                            .filter((q)->!q.isActive())
+                            .collect(Collectors.toList());
+        }
+
+        return questions;
     }
 
 

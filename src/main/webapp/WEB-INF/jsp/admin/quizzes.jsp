@@ -12,6 +12,7 @@
 <div style="text-align:center">
     <h1>Quizzes</h1>
     <p>viewing all quizzes</p>
+
 </div>
 </body>
 
