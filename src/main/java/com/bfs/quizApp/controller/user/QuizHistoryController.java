@@ -25,7 +25,8 @@ public class QuizHistoryController {
     private HttpSession session;
 
     @Autowired
-    public QuizHistoryController(QuestionService questionService,
+    public QuizHistoryController(
+            QuestionService questionService,
                           QuizService quizService,
                           QuizQuestionService qqService) {
         this.questionService = questionService;
@@ -39,13 +40,9 @@ public class QuizHistoryController {
 
         User u = (User) session.getAttribute("user");
         List<Quiz> quizzes = quizService.getQuizzesByUserID(u.getId());
-
-
         quizzes.stream().forEach(this::modifyQuiz);
-
         model.addAttribute("quizzes", quizzes);
 
-        model.addAttribute("question", "meow");
         return "user/history";
     }
 

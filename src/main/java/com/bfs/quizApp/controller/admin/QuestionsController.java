@@ -54,7 +54,7 @@ public class QuestionsController {
         return "redirect:/admin_questions";
     }
 
-    @GetMapping("/getQuestionWithFilter")
+    @GetMapping("/getQuestionsWithFilter")
     public String filterQuestions(
             @RequestParam String category,
             @RequestParam String is_active,

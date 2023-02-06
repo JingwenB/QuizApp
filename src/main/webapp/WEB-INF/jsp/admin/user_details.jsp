@@ -50,7 +50,7 @@
                 <td> ${quiz.time_start} </td>
                 <td> ${quiz.time_end} </td>
                 <td> ${quiz.grade} </td>
-                <td><a href="${pageContext.request.contextPath}/details?quiz_id=${quiz.id}">details</a></td>
+                <td><a href="${pageContext.request.contextPath}/admin_quiz_details?quiz_id=${quiz.id}">details</a></td>
             </tr>
         </c:forEach>
         </tbody>

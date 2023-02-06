@@ -56,7 +56,7 @@ public class QuizDao {
     }
 
     public List<Quiz> getAllQuizzes() {
-        String query = "SELECT * FROM Quiz";
+        String query = "SELECT * FROM Quiz WHERE time_end is not null";
 
         List<Quiz> quizzes =  jdbcTemplate.query(query, quizRowMapper);
         return quizzes;

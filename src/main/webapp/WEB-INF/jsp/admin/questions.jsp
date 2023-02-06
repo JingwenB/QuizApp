@@ -26,8 +26,8 @@
     <p>viewing all questions</p>
 
 </div>
-<p>Choose a question category from below</p>
-<form method="get" action="/getQuestionWithFilter">
+<p>Choose a filters from below</p>
+<form method="get" action="/getQuestionsWithFilter">
 
     <label for="categories">Choose a category:</label>
     <select name="category" id="categories">

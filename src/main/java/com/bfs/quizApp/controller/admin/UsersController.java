@@ -88,5 +88,4 @@ public class UsersController {
         quiz.setGrade();
     }
 
-
 }
