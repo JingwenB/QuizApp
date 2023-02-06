@@ -49,8 +49,8 @@ public class QuestionsController {
             @RequestParam String question_id,
             @RequestParam boolean is_active
     ) {
-        questionService.changeActiveStatus(question_id, is_active);
 
+        questionService.changeActiveStatus(question_id, is_active);
         return "redirect:/admin_questions";
     }
 
