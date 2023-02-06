@@ -14,9 +14,10 @@
     <h1>${user.firstName}'s Detail Page</h1>
     <p>viewing user details for ${user.firstName} ${user.lastName}</p>
     <h2>Basic Info</h2>
-    <p>Email address : ${user.email}</p>
     <p>First name : ${user.firstName}</p>
     <p>Last name : ${user.lastName}</p>
+    <p>Phone Number : ${user.phone}</p>
+    <p>Email address : ${user.email}</p>
     <h2>Quiz History</h2>
 
     <table class="center">

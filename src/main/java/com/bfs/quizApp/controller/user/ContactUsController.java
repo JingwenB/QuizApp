@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ContactUsController {
-    // TODO:Create Service
-//    private final ContactUsService contactUsService;
+    // TODO:Create Service, Dao, Domain
+    //  private final ContactUsService contactUsService;
 
     @Autowired
     public ContactUsController() {

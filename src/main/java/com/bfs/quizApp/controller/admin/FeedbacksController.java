@@ -13,6 +13,9 @@ import java.util.List;
 @Controller
 public class FeedbacksController {
     private final FeedbackService feedbackService;
+    //TODO: Fetch all Feedbacks:
+    // - display all Feedbacks
+    // - display an overall rate
 
     @Autowired
     public FeedbacksController(FeedbackService feedbackService) {
@@ -25,6 +28,8 @@ public class FeedbacksController {
             HttpSession session
     ) {
         List<Feedback> fbs = feedbackService.getAllFeedbacks();
+        fbs.stream().forEach(feedbackService::setUser);
+
         double rate = fbs.stream().mapToInt((fb)->fb.getRating()).average().getAsDouble();
         model.addAttribute("feedbacks", fbs);
         model.addAttribute("overall_rate", rate);

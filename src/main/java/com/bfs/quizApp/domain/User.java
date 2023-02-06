@@ -12,8 +12,9 @@ public class User {
     private String email;
     private String password;
     private String firstName;
-    //TODO add phone number
     private String lastName;
+
+    private String phone;
     private boolean isAdmin;
     private boolean isActive;
 

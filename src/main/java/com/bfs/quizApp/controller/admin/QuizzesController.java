@@ -20,28 +20,34 @@ public class QuizzesController {
     private final QuestionService questionService;
     private final QuizService quizService;
     private final QuizQuestionService qqService;
+    private final UserService userService;
+
+    //TODO: fetch all quizzes
+    // - display all quizzes -> with filter by category & user_id
+    // - each quiz can go into detail
 
     @Autowired
     public QuizzesController(
             QuestionService questionService,
             QuizService quizService,
-            QuizQuestionService qqService
+            QuizQuestionService qqService,
+            UserService userService
     ) {
         this.questionService = questionService;
         this.quizService = quizService;
         this.qqService = qqService;
+        this.userService = userService;
     }
-    //TODO: fetch all quizzes
-    // - display all quizzes -> with filter by category & user_id
-    // - each quiz can go into detail
 
     @GetMapping("/admin_quizzes")
     public String getQuizzes(Model model,
                              HttpSession session) {
         List<Quiz> quizzes = quizService.getQuizzesWithFilter("", "");
+        if (session.getAttribute("users") == null){
+            session.setAttribute("users", userService.getAllUsers(false));
+        }
         quizzes.stream().forEach(this::modifyQuiz);
         model.addAttribute("quizzes", quizzes);
-//        session.setAttribute("quizzes", quizzes);
         return "admin/quizzes";
     }
 

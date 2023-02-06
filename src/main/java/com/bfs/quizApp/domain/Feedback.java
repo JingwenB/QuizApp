@@ -16,5 +16,7 @@ public class Feedback {
     private int rating;
     private Date date;
 
+    // not from db, not robust
+    private User user;
 
 }

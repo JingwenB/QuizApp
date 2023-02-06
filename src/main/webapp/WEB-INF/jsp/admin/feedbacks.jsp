@@ -20,7 +20,7 @@
         <tr>
 
             <th> ID </th>
-            <th> User ID</th>
+            <th> User</th>
             <th> Rating </th>
             <th> Message </th>
             <th> Date </th>
@@ -32,7 +32,7 @@
 
             <tr>
                 <td> ${feedback.id} </td>
-                <td> ${feedback.user_id} </td>
+                <td> ${feedback.user.firstName} ${feedback.user.lastName}</td>
                 <td> ${feedback.rating} </td>
                 <td> ${feedback.message} </td>
                 <td> ${feedback.date} </td>
@@ -41,7 +41,6 @@
         </c:forEach>
         </tbody>
     </table>
-</body>
 
 </div>
 </body>

@@ -22,6 +22,10 @@ public class UsersController {
     private final QuestionService questionService;
     private final QuizQuestionService qqService;
 
+    //TODO: fetch all users:
+    // - display all users
+    // - update user -> active/ inactive
+    // - maybe a detail with quiz history (logically repeated with quizzes)
 
     @Autowired
     public UsersController(UserService userService,
@@ -33,12 +37,7 @@ public class UsersController {
         this.questionService = questionService;
         this.quizService = quizService;
         this.qqService = qqService;
-
     }
-    // fetch all users:
-    // - display all users
-    // - update user -> active/ inactive
-    // - maybe a detail with quiz history (logically repeated with quizzes)
 
     @GetMapping("/admin_users")
     public String getUsers(

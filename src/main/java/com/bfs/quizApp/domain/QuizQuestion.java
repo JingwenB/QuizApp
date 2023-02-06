@@ -16,8 +16,8 @@ public class QuizQuestion {
     private int user_choice_id;
     private int order_num;
 
-    //  not from db
+    // not from db
     private Question question;
-//    private Choice usersChoice;
+    // private Choice usersChoice;
 
 }

@@ -1,6 +1,7 @@
 package com.bfs.quizApp.service;
 
 import com.bfs.quizApp.dao.FeedbackDao;
+import com.bfs.quizApp.dao.UserDao;
 import com.bfs.quizApp.domain.Feedback;
 import com.bfs.quizApp.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,14 @@ import java.util.List;
 @Service
 public class FeedbackService {
     private final FeedbackDao feedbackDao;
+    private final UserService userService;
 
     @Autowired
-    public FeedbackService(FeedbackDao feedbackDao) { this.feedbackDao = feedbackDao; }
-
-
+    public FeedbackService(FeedbackDao feedbackDao,
+                           UserService userService) {
+        this.feedbackDao = feedbackDao;
+        this.userService = userService;
+    }
 
     public List<Feedback> getAllFeedbacks() {
         return feedbackDao.getAllFeedbacks();
@@ -31,5 +35,9 @@ public class FeedbackService {
         feedback.setDate(new Date(System.currentTimeMillis()));
         feedbackDao.createNewFeedback(feedback);
 
+    }
+
+    public void setUser(Feedback fb) {
+        fb.setUser(userService.getUserById(fb.getUser_id()));
     }
 }

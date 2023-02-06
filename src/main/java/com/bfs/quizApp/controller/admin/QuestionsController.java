@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 public class QuestionsController {
 
-    //TODO fetch all questions:
+    //Fetch all questions:
     // - display all question -> can filter by category
     // - update question -> active/ inactive
     // - create new question (low priority)
@@ -39,7 +39,6 @@ public class QuestionsController {
     ) {
         List<Question> questions = questionService.getAllQuestions();
         model.addAttribute("questions", questions);
-//        session.setAttribute("questions", questions);
         return "admin/questions";
     }
 
@@ -58,13 +57,11 @@ public class QuestionsController {
     public String filterQuestions(
             @RequestParam String category,
             @RequestParam String is_active,
-            Model model,
-            HttpSession session
+            Model model
     ) {
 
         List<Question> questions = questionService.getQuestionsWithFilter(category, is_active);
         model.addAttribute("questions", questions);
-//        session.setAttribute("questions", questions);
         return "admin/questions";
     }
 
