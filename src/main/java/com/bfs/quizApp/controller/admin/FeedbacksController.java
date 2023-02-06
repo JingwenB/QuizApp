@@ -9,9 +9,7 @@ public class FeedbacksController {
 
 
     @Autowired
-    public FeedbacksController(
-
-    ) {
+    public FeedbacksController() {
 
     }
 
