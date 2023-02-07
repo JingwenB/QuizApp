@@ -1,5 +1,6 @@
 package com.bfs.quizApp.filter;
 
+import com.bfs.quizApp.domain.User;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -23,7 +24,26 @@ public class LoginFilter extends OncePerRequestFilter {
         HttpSession session = request.getSession(false);
 
         if (session != null && session.getAttribute("user") != null) {
-            filterChain.doFilter(request, response);
+            String path = request.getRequestURI();
+            User u = (User) session.getAttribute("user");
+            if(!u.isActive()){
+                response.sendRedirect("/login");
+            }
+            if(!u.isAdmin() && (path.contains("/admin") )){
+                System.out.println("not admin getting user home");
+                response.sendRedirect("/user_home");
+            } else if (u.isAdmin() && (path.contains("/user") ||
+//                    path.contains("details") ||
+                    path.contains("submit") ||
+                    path.equals("/contact_us")||
+                    path.equals("/feedback") ||
+                    path.equals("/setCategory"))){
+                response.sendRedirect("/admin_home");
+            } else {
+                filterChain.doFilter(request, response);
+            }
+//            filterChain.doFilter(request, response);
+
         } else {
             // redirect back to the login page if user is not logged in
             response.sendRedirect("/login");
