@@ -53,4 +53,9 @@ public class ChoiceDao {
         jdbcTemplate.update(query, choice.getQuestion_id(),
                 choice.getDescription(),choice.isCorrect());
     }
+
+    public void updateChoice(Choice choice) {
+        String query = "update Choice set description = ?, is_correct = ? where choice_id = ?;";
+        jdbcTemplate.update(query, choice.getDescription(), choice.isCorrect(), choice.getId());
+    }
 }

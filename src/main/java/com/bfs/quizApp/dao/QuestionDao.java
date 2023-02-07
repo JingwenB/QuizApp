@@ -98,4 +98,9 @@ public class QuestionDao {
         jdbcTemplate.update(query, question.getCategory(),
                 question.getDescription(),question.isActive());
     }
+
+    public void updateDescription(Question oldQuestion) {
+        String query = "update Question set description = ? where question_id = ?;";
+        jdbcTemplate.update(query, oldQuestion.getDescription(), oldQuestion.getId());
+    }
 }

@@ -40,6 +40,7 @@ public class QuestionsController {
     ) {
         List<Question> questions = questionService.getAllQuestions();
         model.addAttribute("questions", questions);
+        session.setAttribute("questions", questions);
         return "admin/questions";
     }
 
@@ -93,6 +94,46 @@ public class QuestionsController {
                 choice_descriptions, correct_answer_index);
         return "redirect:/admin_questions";
     }
+
+    @GetMapping("/modify_question")
+    public String getModifyQuestionPage(
+            @RequestParam Integer question_id,
+            HttpSession session,
+            Model model
+    ) {
+        List<Question> questions = (List<Question>) session.getAttribute("questions");
+        Question question = questions.stream().filter((q)->q.getId()==question_id).findFirst().orElse(null);
+        if(question == null){
+            return "redirect:/admin_questions";
+        }
+        model.addAttribute("question", question);
+        session.setAttribute("question_to_modify", question);
+        return "admin/modify_question";
+    }
+
+    @PostMapping("/modify_question")
+    public String modifyQuestion(
+            @RequestParam String description,
+            @RequestParam String choice_1,
+            @RequestParam String choice_2,
+            @RequestParam String choice_3,
+            @RequestParam String choice_4,
+
+            @RequestParam Integer correct_answer_index,
+            HttpSession session
+    ) {
+        Question oldQuestion = (Question) session.getAttribute("question_to_modify");
+        List<String> choice_descriptions = new ArrayList<>();
+        choice_descriptions.add(choice_1);
+        choice_descriptions.add(choice_2);
+        choice_descriptions.add(choice_3);
+        choice_descriptions.add(choice_4);
+
+        questionService.modifyQuestion(oldQuestion, description, choice_descriptions, correct_answer_index);
+        return "redirect:/admin_questions";
+    }
+
+
 
 
 }

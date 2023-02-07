@@ -20,6 +20,7 @@
         <thead>
         <tr>
             <th> Order</th>
+            <th> Status</th>
             <th> Question Description</th>
             <th> A</th>
             <th> B</th>
@@ -33,6 +34,14 @@
 
             <tr>
                 <td> Q${qq.order_num + 1} </td>
+                <c:choose>
+                    <c:when test="${qq.question.correct_choice.id == qq.user_choice_id }">
+                        <td> Right</td>
+                    </c:when>
+                    <c:otherwise>
+                        <td> Wrong</td>
+                    </c:otherwise>
+                </c:choose>
                 <td> ${qq.question.description} </td>
 
                 <c:forEach items="${qq.question.choices}" var="choice">
@@ -64,6 +73,11 @@
         </c:forEach>
         </tbody>
     </table>
+    <h2>Use the following link to take a new quiz</h2>
+    <form method="get"
+          action="/user_quiz">
+        <input type="submit" value="Take Another Quiz"/>
+    </form>
 </div>
 
 

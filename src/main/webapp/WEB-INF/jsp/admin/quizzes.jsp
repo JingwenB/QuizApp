@@ -54,6 +54,7 @@
             <th> User ID</th>
             <th> User Name</th>
             <th> Grade</th>
+            <th> Pass Status</th>
             <th> Details</th>
         </tr>
         </thead>
@@ -68,6 +69,7 @@
                 <td> ${quiz.user.id} </td>
                 <td> ${quiz.user.firstName} ${quiz.user.lastName}</td>
                 <td> ${quiz.grade} </td>
+                <td> ${quiz.is_passed} </td>
                 <td><a href="${pageContext.request.contextPath}/admin_quiz_details?quiz_id=${quiz.id}">details</a></td>
             </tr>
         </c:forEach>

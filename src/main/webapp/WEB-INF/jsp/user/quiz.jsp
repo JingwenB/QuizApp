@@ -1,3 +1,5 @@
+<%@ page import="com.bfs.quizApp.domain.Question" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -44,7 +46,8 @@
 
 
     <br/>
-    <c:if test="${questions != null && questions.size() > 0}">
+<%--    <%! List<Question> questions=${sessionScope.questions}; %>--%>
+    <c:if test="${sessionScope.questions != null && sessionScope.questions.size() > 0}">
         <%--    <c:if test="${questions != null}">--%>
 
         <div class ="container">
@@ -56,7 +59,7 @@
         <hr/>
 
 
-        <c:forEach items="${questions}" var="question" varStatus="question_count">
+        <c:forEach items="${sessionScope.questions}" var="question" varStatus="question_count">
 
             <form method="post" action="/submitAnswer?questionId=${question.id}">
 

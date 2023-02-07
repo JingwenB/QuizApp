@@ -2,6 +2,7 @@ package com.bfs.quizApp.service;
 
 import com.bfs.quizApp.dao.ChoiceDao;
 import com.bfs.quizApp.domain.Choice;
+import com.bfs.quizApp.domain.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,5 +38,24 @@ public class ChoiceService {
             }
             choiceDao.createChoicesWithQuestionID(choice);
         }
+    }
+
+    public void updateChoicesWithQuestion(Question oldQuestion, List<String> choice_descriptions, Integer correct_answer_index) {
+
+        for (int i = 0; i < choice_descriptions.size(); i++) {
+            String description = choice_descriptions.get(i);
+            Choice choice = oldQuestion.getChoices().get(i);
+
+            choice.setDescription(description);
+
+
+            if(correct_answer_index == i){
+                choice.setCorrect(true);
+            } else {
+                choice.setCorrect(false);
+            }
+            choiceDao.updateChoice(choice);
+        }
+
     }
 }

@@ -11,6 +11,12 @@
 <body>
 
 <%@ include file="navigation.jsp" %>
+<style>
+    table, th, td {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+</style>
 <div style="text-align:center">
 
     <h1>Questions</h1>
@@ -57,6 +63,7 @@
             <th> D</th>
             <%--            <th> Correct Answer</th>--%>
             <th> Is Active</th>
+            <th> Modify Link</th>
         </tr>
         </thead>
         <tbody>
@@ -106,6 +113,8 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
+                <td><a href="${pageContext.request.contextPath}/modify_question?question_id=${question.id}">
+                    Modify</a></td>
             </tr>
         </c:forEach>
 

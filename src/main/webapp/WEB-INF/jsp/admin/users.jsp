@@ -12,6 +12,12 @@
 <div style="text-align:center">
     <h1>Users</h1>
     <p>viewing all non admin users</p>
+    <style>
+        table, th, td {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
 </div>
 
 <table class="center">

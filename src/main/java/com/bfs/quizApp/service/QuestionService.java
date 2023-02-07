@@ -5,10 +5,7 @@ import com.bfs.quizApp.domain.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -31,11 +28,10 @@ public class QuestionService {
         }
 
         List<Question> questions = getQuestionsWithFilter(category, "true");
+        Collections.shuffle(questions);
 
-        Random r = new Random();
-        int[] fiveRandomNumbers = r.ints(5, 0, questions.size()).toArray();
-        for(int rint:  fiveRandomNumbers){
-            ret.add(questions.get(rint));
+        for(int i =0; i < 5; i ++){
+            ret.add(questions.get(i));
         }
         return ret;
     }
@@ -102,6 +98,17 @@ public class QuestionService {
         choiceService.createChoicesWithQuestionID(choice_descriptions,
                 correct_answer_index, question.getId());
 
+
+    }
+
+    public void modifyQuestion(Question oldQuestion, String description,
+                               List<String> choice_descriptions, Integer correct_answer_index) {
+
+        oldQuestion.setDescription(description);
+        questionDao.updateDescription(oldQuestion);
+
+        choiceService.updateChoicesWithQuestion(oldQuestion, choice_descriptions,
+                correct_answer_index);
 
     }
 }

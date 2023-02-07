@@ -56,7 +56,7 @@ public class QuizDao {
     }
 
     public List<Quiz> getAllQuizzes() {
-        String query = "SELECT * FROM Quiz";
+        String query = "SELECT * FROM Quiz order by time_start desc";
 
         List<Quiz> quizzes =  jdbcTemplate.query(query, quizRowMapper);
         return quizzes;

@@ -77,19 +77,20 @@ public class QuizController {
         session.setAttribute("quiz", newQuiz);
 //        System.out.println("Selected Quiz: " + session.getAttribute("quiz"));
 
-        return "redirect:/user_quiz";
+        return "user/quiz";
     }
 
     @PostMapping("/submitQuiz")
     public String submitQuiz(
             HttpSession session
     ) {
-        System.out.println("submitting Quiz: \n" +
-                "" + session.getAttribute("quiz"));
+//        System.out.println("submitting Quiz: \n" +
+//                "" + session.getAttribute("quiz"));
+        Quiz q = (Quiz)session.getAttribute("quiz");
         quizService.submitQuiz((Quiz)session.getAttribute("quiz"));
         qqService.createQuizQuestions(((Quiz) session.getAttribute("quiz")).getQuizQuestions());
         System.out.println("submitted Quiz");
-        return "redirect:/user_history";
+        return "redirect:/details?quiz_id=" + q.getId();
     }
 
 
