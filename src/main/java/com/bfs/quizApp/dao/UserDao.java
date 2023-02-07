@@ -29,10 +29,10 @@ public class UserDao {
         return jdbcTemplate.query(query, rowMapper);
     }
 
-    public void createNewUser(String email, String password, String firstName, String lastName, String phone) {
-        String query = "INSERT INTO user (firstName, lastName, email, password, phone) " +
-                "values (?, ?, ?, ?, ?)";
-        jdbcTemplate.update(query, firstName, lastName, email, password, phone);
+    public void createNewUser(String email, String password, String firstName, String lastName, String phone, String address) {
+        String query = "INSERT INTO user (firstName, lastName, email, password, phone, address) " +
+                "values (?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(query, firstName, lastName, email, password, phone, address);
     }
 
     public void activateUser(String user_id) {

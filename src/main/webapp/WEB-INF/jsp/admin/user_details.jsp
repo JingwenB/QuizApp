@@ -18,6 +18,7 @@
     <p>Last name : ${user.lastName}</p>
     <p>Phone Number : ${user.phone}</p>
     <p>Email address : ${user.email}</p>
+    <p>Address : ${user.address}</p>
     <h2>Quiz History</h2>
 
     <table class="center">

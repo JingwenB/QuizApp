@@ -46,8 +46,9 @@ public class UserService {
     }
 
 
-    public void createNewUser(String email, String password, String firstName, String lastName, String phone) {
-        userDao.createNewUser(email, password, firstName, lastName, phone);
+    public void createNewUser(String email, String password, String firstName,
+                              String lastName, String phone, String address) {
+        userDao.createNewUser(email, password, firstName, lastName, phone, address);
     }
 
     public void changeActiveStatus(String user_id, boolean is_active) {

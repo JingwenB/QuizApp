@@ -15,6 +15,16 @@
         div {
             padding: 10px 0;
         }
+        textarea {
+            width: 50%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #fdfdfd;
+            vertical-align: top
+        }
+
     </style>
     <title>Login</title>
 </head>
@@ -47,10 +57,15 @@
         </div>
 
         <div>
-            <label>Enter New Password</label>
+            <label>Enter Your Address</label>
+            <textarea cols="80" rows="5" name="address"></textarea>
+        </div>
+        <div>
+            <label>Enter Password</label>
             <input type="password" name="password">
         </div>
-        <input type="submit" value ="Submit"></input>
+
+        <input type="submit" value ="Submit">
 
     </form>
 </div>

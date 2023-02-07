@@ -15,7 +15,8 @@
     <p>My email address: ${sessionScope.user.email}</p>
     <p>My first Name: ${sessionScope.user.firstName}</p>
     <p>My last Name : ${sessionScope.user.lastName}</p>
-    <p>My Phone Number : ${sessionScope.user.phone}</p>
+    <p>Phone Number : ${sessionScope.user.phone}</p>
+    <p>Address : ${sessionScope.user.address}</p>
 
 </div>
 </body>
