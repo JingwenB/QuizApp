@@ -1,7 +1,9 @@
 # QuizApp
 a simple web application to take quiz and manage users
 Login & Register
-![login](/demo_pics/login.png)
+<!-- ![login](/demo_pics/login.png) -->
+<img src="/demo_pics/login.png" width=40% height=40%>
+
 ![register](/demo_pics/register.png)
 ## User 
 ### Profile
