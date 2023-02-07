@@ -12,6 +12,8 @@
 <div style="text-align:center;">
 <h1>User Home</h1>
     <p>This is the home page for user ${sessionScope.user.firstName}</p>
+    <br/>
+    <p> please select from navigation bar to take questions or view your history</p>
 </div>
 </body>
 

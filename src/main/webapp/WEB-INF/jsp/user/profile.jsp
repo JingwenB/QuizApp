@@ -11,9 +11,12 @@
 <%@ include file="navigation.jsp" %>
 <div style="text-align:center">
     <h1>My Profile</h1>
-    <p>My email address : ${sessionScope.user.email}</p>
-    <p>My first name : ${sessionScope.user.firstName}</p>
-    <p>My last name : ${sessionScope.user.lastName}</p>
+    <br/>
+    <p>My email address: ${sessionScope.user.email}</p>
+    <p>My first Name: ${sessionScope.user.firstName}</p>
+    <p>My last Name : ${sessionScope.user.lastName}</p>
+    <p>My Phone Number : ${sessionScope.user.phone}</p>
+
 </div>
 </body>
 

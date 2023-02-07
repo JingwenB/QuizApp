@@ -24,6 +24,7 @@ public class Quiz {
     private List<QuizQuestion> quizQuestions;
     private User user;
     private String grade;
+    private String is_passed;
 
     public void setGrade() {
         int count = quizQuestions.size();
@@ -33,7 +34,9 @@ public class Quiz {
                 corrected ++;
             }
         }
+        this.is_passed = corrected > count/2 ? "passed" : "failed";
         this.grade = corrected + "/" +count;
+
     }
 
 }

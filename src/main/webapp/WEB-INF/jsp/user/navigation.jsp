@@ -1,44 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%--<link rel="stylesheet" href="../style.css">--%>
 <style>
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color:#f1f1f1;
-    }
-
-
-    li a {
-        display: block;
-        color:#000;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    li a:hover:not(.active) {
-        background-color: #555;
-        color: white;
-    }
-
-    .active {
-        background-color: darkgreen;
-        color: white;
-    }
-    table, th, td {
-        border: 1px solid;
-        text-align: center;
-        vertical-align: center;
-        horiz-align: center;
-    }
-
-    table.center {
-        margin-left: auto;
-        margin-right: auto;
-    }
+    <%@include file="../style.css" %>
 </style>
+
 <nav>
     <ul>
 

@@ -28,6 +28,8 @@
             <option value="Biology">Biology</option>
         </select>
         <br/>
+        <br/>
+
         <label for="user_id">Choose a user</label>
         <select name="user_id" id="user_id">
             <option value="" selected>--Please choose an option--</option>
@@ -35,8 +37,9 @@
             <c:forEach items="${sessionScope.users}" var="user">
                 <option value="${user.id}">${user.firstName} ${user.lastName}</option>
             </c:forEach>
-
         </select>
+        <br/>
+        <br/>
         <input type="submit" value="Submit">
     </form>
 

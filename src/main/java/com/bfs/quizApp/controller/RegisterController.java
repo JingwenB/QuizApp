@@ -41,8 +41,9 @@ public class RegisterController {
                                   @RequestParam String password,
                                   @RequestParam String firstName,
                                   @RequestParam String lastName,
+                                  @RequestParam String phone,
                                   HttpSession session) {
-        userService.createNewUser(email,password,firstName,lastName);
+        userService.createNewUser(email,password,firstName,lastName, phone);
 
         System.out.println("in register");
         return "redirect:/login";

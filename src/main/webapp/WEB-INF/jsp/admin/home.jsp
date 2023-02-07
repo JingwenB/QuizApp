@@ -12,6 +12,8 @@
 <div style="text-align:center">
     <h1>Admin Home</h1>
     <p>This is the home page for Admin ${sessionScope.user.firstName}</p>
+    <br/>
+    <p> please select from navigation bar to manage your users, questions and quizzes</p>
 </div>
 </body>
 

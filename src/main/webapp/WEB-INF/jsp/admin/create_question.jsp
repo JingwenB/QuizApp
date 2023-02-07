@@ -6,9 +6,6 @@
     <title>Create Question</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body {
-            font-family: Calibri, Helvetica, sans-serif;
-        }
 
         .container {
             width: 50%;
@@ -35,10 +32,6 @@
             padding: 10px 0;
         }
 
-        hr {
-            border: 1px solid #d8d8d8;
-            margin-bottom: 25px;
-        }
 
     </style>
 </head>

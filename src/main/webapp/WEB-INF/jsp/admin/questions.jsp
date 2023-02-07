@@ -29,6 +29,7 @@
             <option value="Biology">Biology</option>
         </select>
         <br/>
+        <br/>
         <label for="is_active">Choose question status</label>
         <select name="is_active" id="is_active">
             <option value="" selected>--Please choose an option--</option>
@@ -36,13 +37,11 @@
             <option value="true">Active</option>
             <option value="false">Inactive</option>
         </select>
+        <br/>
+        <br/>
         <input type="submit" value="Submit">
     </form>
 
-    <form method="get"
-          action="/create_question">
-        <input type="submit" value="Create New Question"/>
-    </form>
 
 
     <table class="center">
@@ -112,6 +111,19 @@
 
         </tbody>
     </table>
+
+    <br/>
+    <br/>
+    <hr/>
+
+    <h2>Create A Question</h2>
+    <p>Please use the following link to submit a form to create a new question</p>
+    <br/>
+<%--    <hr/>--%>
+    <form method="get"
+          action="/create_question">
+        <input type="submit" value="Create New Question"/>
+    </form>
 
 
 </div>
