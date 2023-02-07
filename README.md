@@ -1,36 +1,45 @@
 # QuizApp
 a simple web application to take quiz and manage users
 Login & Register
-![login](/demo_pics/login.png)
-![register](/demo_pics/register.png)
+
 <img src="/demo_pics/login.png" width=40% height=40%>
+<img src="/demo_pics/register.png" width=40% height=40%>
 
 ## User 
 ### Profile
 Display personal data
-![user_profile](/demo_pics/user_profile.png)
+
+
+<img src="/demo_pics/user_profile.png" width=40% height=40%>
 
 ### Quiz History
 Display this users all quiz history with link to quiz detail page(question and selection)
-![user_history](/demo_pics/user_history.png)
+
+
+<img src="/demo_pics/user_history.png" width=40% height=40%>
 
 
 
 ### Take New Quiz
 Select from 3 category, when finish goto quiz result 
 
-![take_quiz](/demo_pics/take_quiz.png)
-![take_quiz2](/demo_pics/take_quiz_2.png)
+
+<img src="/demo_pics/take_quiz.png" width=40% height=40%>
+<img src="/demo_pics/take_quiz_2.png" width=40% height=40%>
 
 
 ### Contact Us
 Submit contact us message
-![contact](/demo_pics/contact.png)
+
+
+<img src="/demo_pics/contact.png" width=40% height=40%>
 
 
 ### Submit Feedback
 Submit feedback
-![feedback](/demo_pics/feedback.png)
+
+
+<img src="/demo_pics/feedback.png" width=40% height=40%>
 
 
 
@@ -40,21 +49,29 @@ Submit feedback
 ### Manage All Users 
 Display all users with link to detail page(personal data+ quiz history)
 Deactivate/activate a user
-![manage_user](/demo_pics/manage_user.png)
+
+
+<img src="/demo_pics/manage_user.png" width=40% height=40%>
 
 ### Manage All Questions
 Display all questions, can filter by category 
 Deactivate a question 
-![manage_question](/demo_pics/manage_question.png)
+
+
+<img src="/demo_pics/manager_question.png" width=40% height=40%>
 
 You can aslo Create new question &  Modify a question
-![create_question](/demo_pics/create_question.png)
+
+
+<img src="/demo_pics/create_question.png" width=40% height=40%>
 
 
 
 ### Manage All Quizzes
 Display all quizzes,  can filter by category + user name , with link to quiz detail
-![manage_quiz](/demo_pics/manage_quiz.png)
+
+
+<img src="/demo_pics/manage_quiz.png" width=40% height=40%>
 
 
 ### View All Feedbacks
