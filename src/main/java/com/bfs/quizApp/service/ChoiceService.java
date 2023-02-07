@@ -33,9 +33,7 @@ public class ChoiceService {
             Choice choice = new Choice();
             choice.setQuestion_id(question_id);
             choice.setDescription(description);
-            if(correct_answer_index == i){
-                choice.setCorrect(true);
-            }
+            choice.setCorrect(correct_answer_index == i);
             choiceDao.createChoicesWithQuestionID(choice);
         }
     }
@@ -45,15 +43,8 @@ public class ChoiceService {
         for (int i = 0; i < choice_descriptions.size(); i++) {
             String description = choice_descriptions.get(i);
             Choice choice = oldQuestion.getChoices().get(i);
-
             choice.setDescription(description);
-
-
-            if(correct_answer_index == i){
-                choice.setCorrect(true);
-            } else {
-                choice.setCorrect(false);
-            }
+            choice.setCorrect(correct_answer_index == i);
             choiceDao.updateChoice(choice);
         }
 
