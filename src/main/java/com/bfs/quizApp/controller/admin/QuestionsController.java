@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -63,6 +64,34 @@ public class QuestionsController {
         List<Question> questions = questionService.getQuestionsWithFilter(category, is_active);
         model.addAttribute("questions", questions);
         return "admin/questions";
+    }
+
+    @GetMapping("/create_question")
+    public String getCreateQuestionPage(
+    ) {
+        return "admin/create_question";
+    }
+
+    @PostMapping("/create_question")
+    public String createQuestion(
+            @RequestParam String category,
+            @RequestParam String description,
+            @RequestParam String choice_1,
+            @RequestParam String choice_2,
+            @RequestParam String choice_3,
+            @RequestParam String choice_4,
+
+            @RequestParam Integer correct_answer_index
+
+    ) {
+        List<String> choice_descriptions = new ArrayList<>();
+        choice_descriptions.add(choice_1);
+        choice_descriptions.add(choice_2);
+        choice_descriptions.add(choice_3);
+        choice_descriptions.add(choice_4);
+        questionService.createNewQuestionWithChoices(category, description,
+                choice_descriptions, correct_answer_index);
+        return "redirect:/admin_questions";
     }
 
 

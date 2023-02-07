@@ -40,18 +40,19 @@
                 <c:choose>
                     <%--Note: sent request parameter(user_id, is_active) withing url--%>
                     <c:when test="${user.active}">
+                        <label>Yes</label>
                         <form method="post" action="/user_status?user_id=${user.id}&is_active=${user.active}">
-                            <button type="submit">
-                                deactivate
-                            </button>
+                            <input type="submit" value="deactivate"
+                                   style="background-color: #F4CCCC;
+                                       color: #800000"/>
                         </form>
                     </c:when>
                     <c:otherwise>
+                        <label>No</label>
                         <form method="post" action="/user_status?user_id=${user.id}&is_active=${user.active}">
-                                <%--<button type="submit" name="user_id" value=${user.id}>--%>
-                            <button type="submit" >
-                                activate
-                            </button>
+                            <input type="submit" value="activate"
+                                   style="background-color: #DFF0D8;
+                                color: #3d773f"/>
                         </form>
                     </c:otherwise>
                 </c:choose>

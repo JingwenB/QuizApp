@@ -38,13 +38,20 @@
                 <c:forEach items="${qq.question.choices}" var="choice">
                     <c:choose>
                         <c:when test="${choice.id == qq.user_choice_id && choice.correct }">
-                            <td style="color: green;font-weight:bold"> ${choice.description} </td>
+                            <td style="
+                            font-weight:bold;
+                            background-color: #DFF0D8;
+                            color: #3d773f"> ${choice.description} </td>
                         </c:when>
                         <c:when test="${choice.id == qq.user_choice_id && !choice.correct}">
-                            <td style="color: red;font-weight:bold"> ${choice.description} </td>
+                            <td style="font-weight:bold;
+                            background-color: #F4CCCC;
+                            color: #800000"> ${choice.description} </td>
                         </c:when>
                         <c:when test="${choice.correct}">
-                            <td style="color: green;font-weight:bold"> ${choice.description} </td>
+                            <td style="font-weight:bold;
+                            background-color: #DFF0D8;
+                            color: #3d773f"> ${choice.description} </td>
                         </c:when>
                         <c:otherwise>
                             <td> ${choice.description} </td>

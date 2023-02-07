@@ -26,4 +26,16 @@ public class ChoiceService {
     }
 
 
+    public void createChoicesWithQuestionID(List<String> choice_descriptions, Integer correct_answer_index, int question_id) {
+        for (int i = 0; i < choice_descriptions.size(); i++) {
+            String description = choice_descriptions.get(i);
+            Choice choice = new Choice();
+            choice.setQuestion_id(question_id);
+            choice.setDescription(description);
+            if(correct_answer_index == i){
+                choice.setCorrect(true);
+            }
+            choiceDao.createChoicesWithQuestionID(choice);
+        }
+    }
 }

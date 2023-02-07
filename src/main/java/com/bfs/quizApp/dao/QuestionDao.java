@@ -91,4 +91,11 @@ public class QuestionDao {
         String query = "update Question set is_active = false where question_id = ?;";
         jdbcTemplate.update(query, question_id);
     }
+
+    public void creaetNewQuestion(Question question) {
+        String query = "INSERT INTO Question (category, description, is_active) " +
+                "values (?, ?, ?)";
+        jdbcTemplate.update(query, question.getCategory(),
+                question.getDescription(),question.isActive());
+    }
 }

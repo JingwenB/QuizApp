@@ -47,5 +47,10 @@ public class ChoiceDao {
     }
 
 
-
+    public void createChoicesWithQuestionID(Choice choice) {
+        String query = "INSERT INTO Choice (question_id, description, is_correct) " +
+                "values (?, ?, ?)";
+        jdbcTemplate.update(query, choice.getQuestion_id(),
+                choice.getDescription(),choice.isCorrect());
+    }
 }
